@@ -9,7 +9,7 @@ def skipgram_pairs(token_ids: torch.Tensor, window: int) -> torch.Tensor:
         center = token_ids[i]
         start = max(0, i - window)
         end = min(len(token_ids), i + window + 1)
-
+        
         for j in range(start, end):
             if i != j:
                 pairs.append([center.item(), token_ids[j].item()])
